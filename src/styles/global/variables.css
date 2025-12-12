@@ -5,57 +5,35 @@
   /* Base Colors */
   --color-white: #fff;
   --color-black: #333;
-  --color-light-beige: #efe5d1;
-  --color-beige: #d4b987;
-  --color-deep-beige: #8e6e33;
-  --color-brown: #6a3c0a;
-  --color-dark-brown: #563d0d;
-  --color-gold: #bf9c35;
-  --color-red: #af2304;
-  --color-dim-red: #b93728;
-  --color-dim-red2: #c2584a;
-  --color-pink: #e18e72;
-  --color-purple: #bca8d2;
-  --color-green: #75a046;
-  --color-deep-green: #4e530f;
-  --color-gray: #797979;
-  --color-light-gray: #f6f5f2;
-  --color-pale-pink: #f2b9bb;
-  --color-pale-orange: #f2c5b5;
-  --color-pale-yellow: #f7e19f;
-  --color-pale-green: #c7e6b3;
+  --color-beige: #d4b682;
+  --color-red: #bf1b1d;
+  --color-bright-red: #de010d;
+  --color-mid-red: #c02335;
+  --color-dark-red: #a61f29;
+  --color-mid-beige: #c4934a;
+  --color-dark-beige: #a17025;
+  --color-pale-pink: #f6c3c3;
+  --color-gray: #cacaca;
+  --color-brown: #730815;
+  --color-gradient-red: linear-gradient(to right, #db2740, #931c21);
+  --color-gradient-beige: linear-gradient(to right, #fff1da, #bb8535);
 
   /* Semantic Colors */
   --color-text: var(--color-black);
-  --color-bg: var(--color-light-beige);
-  --color-main: var(--color-brown);
-  --color-accent: var(--color-deep-pink);
-  --color-accent2: var(--color-dim-red2);
-  --color-sub: var(--color-gold);
-  --color-sub2: var(--color-green);
-  --color-sub3: var(--color-pink);
-  --color-sub4: var(--color-purple);
-  --color-sub5: var(--color-dim-red);
-  --color-sub6: var(--color-gray);
-  --color-qa-header: var(--color-beige);
-  --color-waffle-title: var(--color-deep-green);
-  --color-item-card-price: var(--color-dark-brown);
-  --color-tips-header1: var(--color-pale-pink);
-  --color-tips-header2: var(--color-pale-orange);
-  --color-tips-header3: var(--color-pale-yellow);
-  --color-tips-header4: var(--color-pale-green);
-  --color-contents-bg: var(--color-light-gray);
+  --color-main: var(--color-red);
+  --color-price-secondary: var(--color-bright-red);
+  --color-border-secondary: var(--color-beige);
+  --color-card-frame: var(--color-mid-beige);
+  --color-background: var(--color-gradient-red);
+  --color-accent: var(--color-gradient-beige);
 }
 
 /* -------------------
    Typography
 ------------------- */
 :root {
-  --font-jp--serif: 'Noto Serif JP', 'Georgia', 'Times New Roman', serif;
-  --font-jp--sanserif: 'Noto Sans JP', 'Helvetica', 'Arial', sans-serif;
-  --font-en: 'Metal', sans-serif;
-  --font-en--decor: 'Alex Brush', sans-serif;
-
+  --font-jp: 'Noto Sans JP', 'Helvetica', 'Arial', sans-serif;
+  --font-en: 'Roboto Condensed', sans-serif;
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
@@ -73,7 +51,7 @@
   --layout-max-width: 1440px;
   --layout-max-width-inner: 1100px;
   --layout-padding-sp: 20px;
-  --layout-padding-pc: 50px;
+  --layout-padding-pc: 170px;
 }
 
 /* -------------------

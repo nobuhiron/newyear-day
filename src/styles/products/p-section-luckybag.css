@@ -1,0 +1,99 @@
+@import '../global/variables.css';
+
+.p-section-luckybag {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  background: var(--color-gradient-red);
+}
+
+.p-section-luckybag__header {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 16px;
+  max-width: 700px;
+  margin-inline: auto;
+  color: var(--color-white);
+}
+.p-section-luckybag__catchphrase {
+  font-family: var(--font-en);
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.4em;
+  font-weight: var(--fw-regular);
+  font-size: fz(20, 26);
+}
+.p-section-luckybag__title {
+  max-width: 400px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.p-section-luckybag__title-hana {
+  aspect-ratio: 1;
+  width: clamp(36px, 3vw, 52px);
+}
+
+.p-section-luckybag__description {
+  text-align: center;
+  margin: 0;
+  color: var(--color-white);
+}
+
+@media (--md) {
+  .p-section-luckybag__header {
+    margin-bottom: var(--spacing-3xl);
+  }
+}
+
+.p-section-luckybag__items {
+  display: grid;
+  gap: 60px;
+}
+
+@media (--md) {
+  .p-section-luckybag__items {
+    gap: 50px;
+  }
+}
+.p-section-luckybag__notice {
+  background-image: url('/ashirai_bg.svg');
+  background-repeat: repeat;
+  background-position: center;
+  border: 2px solid var(--color-border-secondary);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  margin-top: var(--spacing-4xl);
+  max-width: var(--layout-max-width-inner);
+}
+
+@media (--md) {
+  .p-section-luckybag__notice {
+    padding: var(--spacing-4xl) var(--spacing-3xl);
+  }
+}
+
+.p-section-luckybag__notice-title {
+  font-size: fz(20, 28);
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  display: inline-block;
+  margin-inline: auto;
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-white);
+}
+
+.p-section-luckybag__notice-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.p-section-luckybag__notice-item {
+  color: var(--color-white);
+}

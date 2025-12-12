@@ -1,0 +1,32 @@
+---
+import SectionTitle from '../components/SectionTitle.astro';
+import SpecialItem from '../components/SpecialItem.astro';
+import specialItem1 from '../assets/images/special-item-1.png';
+import specialItem2 from '../assets/images/special-item-2.png';
+---
+
+<section id='special-items' class='p-section-special-items'>
+  <SectionTitle titleEn='SPECIAL ITEMS' titleJp='年末年始だけの特別アイテム' />
+  <div class='p-section-special-items__items'>
+    <SpecialItem
+      image={{
+        src: specialItem1,
+        alt: '森半 大福茶（おおふくちゃ）30g袋入り≪小梅・結び昆布付き≫',
+      }}
+      title='森半 大福茶（おおふくちゃ）30g袋入り≪小梅・結び昆布付き≫'
+      price='¥1,080(税込)'
+      description='京都に古くから伝わるお正月用のおめでたいお茶。「よい年でありますように。みんなが健やかに過ごせますように」と願いを込めてご賞味ください。'
+      buttonHref='#'
+    />
+    <SpecialItem
+      image={{
+        src: specialItem2,
+        alt: '森半 令和7年 勅題抹茶『雲月の友』[30g缶入り]',
+      }}
+      title='森半 令和7年 勅題抹茶『雲月の友』[30g缶入り]'
+      price='¥1,836(税込)'
+      description='新春の恒例行事、宮中歌会始め、令和7年のお題は『友』。そのお題にちなんだ銘のお抹茶。新春の慶びの意に、また初春の茶事にどうぞご利用ください。'
+      buttonHref='#'
+    />
+  </div>
+</section>

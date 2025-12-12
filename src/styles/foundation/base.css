@@ -14,12 +14,19 @@ body {
   overflow-wrap: break-word;
   /* makeshop用の特別な対応 scroll-topなどが効かない為 */
   height: auto !important;
+
+  color: var(--color-black);
+  font-family: var(--font-jp);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: var(--fw-medium);
+  background-color: var(--color-bg);
 }
 
 main {
   /*本来はbodyで書く内容だが、makeshop用の特別な対応 共通headerのcolorに影響が出るため。*/
   color: var(--color-black);
-  font-family: var(--font-jp--serif);
+  font-family: var(--font-jp);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   font-weight: var(--fw-medium);
@@ -47,5 +54,3 @@ img {
 #contents-area {
   padding-bottom: 0;
 }
-
-

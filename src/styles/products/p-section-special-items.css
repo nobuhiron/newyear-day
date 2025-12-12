@@ -1,0 +1,28 @@
+@import '../global/variables.css';
+
+.p-section-special-items {
+  background: var(--color-gradient-red);
+  padding: var(--spacing-4xl) var(--layout-padding-sp);
+  color: var(--color-white);
+}
+
+@media (--md) {
+  .p-section-special-items {
+    padding: var(--spacing-5xl) var(--layout-padding-pc);
+  }
+}
+
+.p-section-special-items__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xl);
+  max-width: var(--layout-max-width-inner);
+  margin-inline: auto;
+}
+
+@media (--md) {
+  .p-section-special-items__items {
+    gap: var(--spacing-5xl);
+  }
+}
+

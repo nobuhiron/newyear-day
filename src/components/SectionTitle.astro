@@ -1,0 +1,12 @@
+---
+interface Props {
+  titleEn: string;
+  titleJp: string;
+}
+
+const { titleEn, titleJp} = Astro.props;
+---
+  <h2 class='c-section-title' >
+    <span class='c-section-title--en' aria-hidden='true'>{titleEn}</span>
+    <span class='c-section-title--jp'>{titleJp}</span>
+  </h2>

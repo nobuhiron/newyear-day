@@ -1,0 +1,13 @@
+.c-section-title {
+  font-family: var(--font-jp--serif);
+  font-size: 32px;
+  font-weight: var(--fw-medium);
+  line-height: 1.6;
+  color: var(--color-white);
+  display: grid;
+  text-align: center;
+}
+
+.c-section-title--jp {
+  font-size: var(--font-size-base);
+}

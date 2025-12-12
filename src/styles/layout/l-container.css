@@ -1,15 +1,11 @@
 @import '../global/variables.css';
 
 .l-container {
-  width: 100%;
-  max-width: 100%;
-  padding-inline: var(--layout-padding-sp);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  @media (--lg) {
-    max-width: var(--layout-max-width);
-    padding-inline: var(--layout-padding-pc);
-  }
-
+  max-width: var(--layout-max-width);
+  margin-inline: auto;
+  padding-inline: clamp(
+    var(--layout-padding-sp),
+    5vw,
+    var(--layout-padding-pc)
+  );
 }

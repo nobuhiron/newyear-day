@@ -1,0 +1,34 @@
+---
+import ProductCard from '../components/ProductCard.astro';
+import { partyProducts } from '../data/products';
+import SectionTitle from '../components/SectionTitle.astro';
+import partyItem1 from '../assets/images/party-item-1.png';
+import partyItem2 from '../assets/images/party-item-2.png';
+import partyItem3 from '../assets/images/party-item-3.png';
+import partyItem4 from '../assets/images/party-item-4.png';
+
+const productsWithImages = [
+  { ...partyProducts[0], image: { src: partyItem1, alt: partyProducts[0].image?.alt || '' } },
+  { ...partyProducts[1], image: { src: partyItem2, alt: partyProducts[1].image?.alt || '' } },
+  { ...partyProducts[2], image: { src: partyItem3, alt: partyProducts[2].image?.alt || '' } },
+  { ...partyProducts[3], image: { src: partyItem4, alt: partyProducts[3].image?.alt || '' } },
+];
+---
+
+<section id='party' class='p-section-party'>
+  <SectionTitle titleEn='PARTY TIME' titleJp='集まり"のおともに' />
+  <div class='p-section-party__products'>
+  {
+    productsWithImages.map((product) => (
+      <ProductCard
+        title={product.title}
+        price={product.price}
+        description={product.description}
+        buttonText={product.buttonText}
+        buttonHref={product.buttonHref}
+        image={product.image}
+      />
+    ))
+  }
+  </div>
+</section>
