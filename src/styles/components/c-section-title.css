@@ -1,13 +1,23 @@
 .c-section-title {
-  font-family: var(--font-jp--serif);
-  font-size: 32px;
-  font-weight: var(--fw-medium);
-  line-height: 1.6;
   color: var(--color-white);
   display: grid;
   text-align: center;
+  gap: clamp(6px, 2vw, 16px);
 }
 
-.c-section-title--jp {
-  font-size: var(--font-size-base);
+.c-section-title__jp {
+  font-family: var(--font-jp--serif);
+  font-weight: var(--fw-semibold);
+  font-size: fz(18, 20);
+  letter-spacing: 0.32em;
+  line-height: 1;
+}
+
+.c-section-title__en {
+  font-size: fz(40, 80);
+  font-family: var(--font-en);
+  font-weight: var(--fw-regular);
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+  line-height: 1;
 }

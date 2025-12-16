@@ -2,10 +2,10 @@
 
 .c-product-card {
   background-color: var(--color-white);
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 6px solid var(--color-card-frame);
+  gap: clamp(12px, 2vw, 20px);
 }
 
 @media (--md) {
@@ -16,30 +16,9 @@
   }
 }
 
-.c-product-card__images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 16px;
-  background-color: var(--color-light-gray);
-}
-
-@media (--md) {
-  .c-product-card__images {
-    grid-row: 1;
-  }
-}
-
-.c-product-card__image {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
 .c-product-card__content {
-  padding: 24px;
+  padding-inline: clamp(14px, 2vw, 24px);
+  padding-block-end: clamp(24px, 2vw, 34px);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -54,20 +33,18 @@
   }
 }
 
-.c-product-card__title {
-  font-family: var(--font-jp--serif);
-  font-weight: var(--fw-medium);
-  line-height: 1.6;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.c-product-card__header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2px, 2vw, 8px);
 }
 
-@media (--md) {
-  .c-product-card__title {
-    grid-row: 1;
-  }
+.c-product-card__title {
+  font-weight: var(--bold);
+  font-size: fz(16, 18);
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
 }
 
 .c-product-card__title::before {
@@ -75,7 +52,7 @@
   display: inline-block;
   width: 16px;
   height: 16px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z' fill='%23333'/%3E%3C/svg%3E");
+  background-image: url('./public/hand.svg');
   background-size: contain;
   background-repeat: no-repeat;
   flex-shrink: 0;
@@ -85,7 +62,7 @@
   font-size: 24px;
   font-weight: var(--fw-bold);
   color: var(--color-red);
-  line-height: 1.2;
+  text-align: right;
 }
 
 @media (--md) {

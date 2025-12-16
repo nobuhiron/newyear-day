@@ -21,62 +21,68 @@ import happybagCoffee from '../assets/images/happybag_coffee.png';
           </div>
         </h2>
         <p class='p-section-luckybag__description'>
-          毎年ご好評いただいている<br class='is-sm' />ハッピーバッグが2025年も登場！<br/>
-          人気の定番アイテムから隠れた人気商品が<br class="">入った"ちょっとお得に"楽しめる福袋。
-          はじめての方にも、リピートの方にもおすすめ！
+          毎年ご好評いただいている<br
+            class='is-sm'
+          />ハッピーバッグが2025年も登場！<br />
+          人気の定番アイテムから隠れた人気商品が<br
+            class='is-sm'
+          />入った"ちょっとお得に"楽しめる福袋。
         </p>
+        はじめての方にも、リピートの方にもおすすめ！
       </header>
-      <div class='p-section-luckybag__items'>
-        <LuckybagItem
-          image={{
-            src: happybagTea,
-            alt: '森半のお茶セット',
-            width: 600,
-            height: 462,
-          }}
-          title='[ 森半のお茶セット ]'
-          price='¥5,400 (税込)'
-          contents={[
-            { name: '抹茶ヴァッフェル', quantity: '2' },
-            { name: '大福茶', quantity: '1' },
-            { name: '勅題抹茶', quantity: '1' },
-            { name: '香ばし黒豆ほうじ茶', quantity: '1' },
-            { name: '抹茶フィナンシェ', quantity: '2' },
-            { name: 'ほうじ茶ヴァッフェル', quantity: '2' },
-            { name: '八十八夜玉露', quantity: '1' },
-            { name: '卓上カレンダー', quantity: '1' },
-            { name: 'くま半不織布バック', quantity: '1' },
-          ]}
-          buttonHref='#'
-        />
-        <LuckybagItem
-          image={{
-            src: happybagCoffee,
-            alt: '森半のコーヒーセット',
-            width: 600,
-            height: 462,
-          }}
-          title='[ 森半のコーヒーセット ]'
-          price='¥5,400 (税込)'
-          contents={[
-            { name: 'コーヒーギフトセットいちまつ', quantity: '1' },
-            { name: 'KFK オリジナルキャニスター缶', quantity: '1' },
-            { name: 'ホリデーブレンド [豆: 500g]', quantity: '1' },
-            { name: 'KFK 不織布バッグ', quantity: '1' },
-            {
-              name: 'ロマンスコーヒーセレクションエチオピア [10g×5P]',
-              quantity: '1',
-            },
-            {
-              name: 'ロマンスコーヒーセレクションガラパゴス [10g×5P]',
-              quantity: '1',
-            },
-          ]}
-          buttonHref='#'
-          reverse={true}
-        />
-      </div>
-      <div class='p-section-luckybag__notice'>
+    </div>
+    <div class='p-section-luckybag__items'>
+      <LuckybagItem
+        image={{
+          src: happybagTea,
+          alt: '森半のお茶セット',
+          width: 600,
+          height: 462,
+        }}
+        title='[ 森半のお茶セット ]'
+        price='5,400'
+        contents={[
+          { name: '抹茶ヴァッフェル', quantity: '2' },
+          { name: '大福茶', quantity: '1' },
+          { name: '勅題抹茶', quantity: '1' },
+          { name: '香ばし黒豆ほうじ茶', quantity: '1' },
+          { name: '抹茶フィナンシェ', quantity: '2' },
+          { name: 'ほうじ茶ヴァッフェル', quantity: '2' },
+          { name: '八十八夜玉露', quantity: '1' },
+          { name: '卓上カレンダー', quantity: '1' },
+          { name: 'くま半不織布バック', quantity: '1' },
+        ]}
+        buttonHref='#'
+      />
+      <LuckybagItem
+        image={{
+          src: happybagCoffee,
+          alt: '森半のコーヒーセット',
+          width: 600,
+          height: 462,
+        }}
+        title='[ 森半のコーヒーセット ]'
+        price='5,400'
+        contents={[
+          { name: 'コーヒーギフトセットいちまつ', quantity: '1' },
+          { name: 'KFK オリジナルキャニスター缶', quantity: '1' },
+          { name: 'ホリデーブレンド [豆: 500g]', quantity: '1' },
+          { name: 'KFK 不織布バッグ', quantity: '1' },
+          {
+            name: 'ロマンスコーヒーセレクションエチオピア [10g×5P]',
+            quantity: '1',
+          },
+          {
+            name: 'ロマンスコーヒーセレクションガラパゴス [10g×5P]',
+            quantity: '1',
+          },
+        ]}
+        buttonHref='#'
+        reverse={true}
+      />
+    </div>
+    <div class='p-section-luckybag__notice'>
+      <div class='p-section-luckybag__notice-inner'>
         <h3 class='p-section-luckybag__notice-title'>福袋に関するご注意</h3>
         <ul class='p-section-luckybag__notice-list'>
           <li class='p-section-luckybag__notice-item'>

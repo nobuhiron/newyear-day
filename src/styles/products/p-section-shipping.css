@@ -18,7 +18,7 @@
 .p-section-shipping__inner {
   padding-block: clamp(40px, 5vw, 80px);
   padding-inline: 20px;
-  max-width: 862px;
+  max-width: var(--layout-max-width-inner-narrow);
   margin-inline: auto;
 }
 

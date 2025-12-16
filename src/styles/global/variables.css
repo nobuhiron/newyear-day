@@ -39,8 +39,7 @@
   --fw-semibold: 600;
   --fw-bold: 700;
 
-  /* 16px ~ 18px のfluid指定 (SCSSのfz関数相当) */
-  --font-size-base: clamp(16px, 1.6vw, 18px);
+  --font-size-base: 16px;
   --line-height-base: 1.62;
 }
 
@@ -50,6 +49,7 @@
 :root {
   --layout-max-width: 1440px;
   --layout-max-width-inner: 1100px;
+  --layout-max-width-inner-narrow: 862px;
   --layout-padding-sp: 20px;
   --layout-padding-pc: 60px;
 }

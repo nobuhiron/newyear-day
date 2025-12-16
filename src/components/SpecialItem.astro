@@ -55,7 +55,11 @@ const isImageMetadata = (
   <div class='c-special-item__info'>
     <header class='c-special-item__info-header'>
       <h3 class='c-special-item__title'>{title}</h3>
-      <div class='c-special-item__price'>{price}</div>
+      <div class='c-special-item__price'>
+        <span class='c-special-item__price-yen'>¥</span>
+        <span class='c-special-item__price-value'>{price}</span>
+        <span class='c-special-item__price-unit'> (税込)</span>
+      </div>
     </header>
     <div class='c-special-item__divider'></div>
     <div class='c-special-item__info-body'>

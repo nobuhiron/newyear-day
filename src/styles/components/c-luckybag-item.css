@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: space-between;
     row-gap: 0px;
-    column-gap: 20px;
+    column-gap: calc(50 / 1100 * 100%);
   }
 
   .c-luckybag-item--reverse {
@@ -30,7 +30,6 @@
   }
 }
 
-
 .c-luckybag-item__image {
   object-fit: cover;
 }
@@ -38,10 +37,10 @@
 .c-luckybag-item__info {
   display: grid;
   gap: 30px;
-  grid-template-columns:1fr;
+  grid-template-columns: 1fr;
 }
 
-.c-luckbag-item__header {
+.c-luckybag-item__info-header {
   text-align: center;
 }
 
@@ -53,13 +52,24 @@
 }
 
 .c-luckybag-item__price {
-  font-size: fz(28, 36);
-  font-weight: var(--fw-bold);
+  font-family: var(--font-en);
+  font-weight: var(--fw-medium);
   color: var(--color-white);
-  line-height: 1.2;
-  text-aligh: center;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  display: inline-block;
 }
-
+.c-luckybag-item__price-value {
+  font-size: fz(60, 80);
+}
+.c-luckybag-item__price-yen {
+  font-size: 40px;
+}
+.c-luckybag-item__price-unit {
+  font-family: var(--font-jp);
+  font-size: 13px;
+  font-weight: var(--font-bold);
+}
 .c-luckybag-item__contents {
   display: grid;
   row-gap: 10px;
@@ -93,6 +103,7 @@
 .c-luckybag-item__content-text {
   font-size: fz(14, 16);
   color: var(--color-white);
+  font-weight: var(--fw-bold);
 }
 
 .c-luckybag-item__button {

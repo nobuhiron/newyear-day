@@ -64,7 +64,11 @@ const rightContents = contents.slice(Math.ceil(contents.length / 2));
   </div>
   <div class='c-luckybag-item__info'>
     <header class='c-luckybag-item__info-header'>
-      <div class='c-luckybag-item__price'>{price}</div>
+      <div class='c-luckybag-item__price'>
+        <span class='c-luckybag-item__price-yen'>¥</span>
+        <span class='c-luckybag-item__price-value'>{price}</span>
+        <span class='c-luckybag-item__price-unit'> (税込)</span>
+      </div>
       <h3 class='c-luckybag-item__title'>{title}</h3>
     </header>
     <div class='c-luckybag-item__contents'>

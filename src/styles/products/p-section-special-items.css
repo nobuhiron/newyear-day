@@ -1,22 +1,21 @@
 @import '../global/variables.css';
 
 .p-section-special-items {
-  background: var(--color-gradient-red);
-  padding: var(--spacing-4xl) var(--layout-padding-sp);
-  color: var(--color-white);
+  background: linear-gradient(100.88deg, #92090b 0.61%, #80080a 90.21%);
+  padding-block-start: clamp(60px, 5vw, 190px);
+  padding-block-end: clamp(86px, 5vw, 210px);
 }
-
-@media (--md) {
-  .p-section-special-items {
-    padding: var(--spacing-5xl) var(--layout-padding-pc);
-  }
-}
-
-.p-section-special-items__items {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-4xl);
+.p-section-special-items__inner {
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
   max-width: var(--layout-max-width-inner);
+}
+.p-section-special-items__wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
   margin-inline: auto;
 }
 
@@ -25,4 +24,3 @@
     gap: var(--spacing-5xl);
   }
 }
-
