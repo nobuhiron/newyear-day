@@ -6,7 +6,7 @@
   row-gap: 5px;
 }
 
-@media (--md) {
+@media (--lg) {
   .c-luckybag-item {
     grid-template-columns: calc(600 / 1100 * 100%) 1fr;
     align-items: center;
@@ -36,10 +36,13 @@
 }
 
 .c-luckybag-item__info {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex: 1;
+  display: grid;
+  gap: 30px;
+  grid-template-columns:1fr;
+}
+
+.c-luckbag-item__header {
+  text-align: center;
 }
 
 .c-luckybag-item__title {

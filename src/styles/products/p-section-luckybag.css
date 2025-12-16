@@ -1,36 +1,36 @@
 @import '../global/variables.css';
 
 .p-section-luckybag {
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
   background: var(--color-gradient-red);
+  padding-block-start: clamp(112px, 5vw, 143px);
+  padding-block-end: clamp(80px, 5vw, 136px);
+}
+
+.p-section-luckybag__inner {
+  max-width: var(--layout-max-width-inner);
+  margin-inline: auto;
 }
 
 .p-section-luckybag__header {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: 16px;
-  max-width: 700px;
   margin-inline: auto;
   color: var(--color-white);
 }
 .p-section-luckybag__catchphrase {
   font-family: var(--font-en);
-  line-height: 1.6;
+  line-height: 1;
   text-align: center;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.32em;
   font-weight: var(--fw-regular);
   font-size: fz(20, 26);
 }
 .p-section-luckybag__title {
-  max-width: 400px;
+  max-width: 477px;
   margin-inline: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  column-gap: clamp(16px, 2vw, 24px);
+  margin-block-start: clamp(17px, 3vw, 38px);
 }
 .p-section-luckybag__title-hana {
   aspect-ratio: 1;
@@ -39,19 +39,22 @@
 
 .p-section-luckybag__description {
   text-align: center;
-  margin: 0;
   color: var(--color-white);
+  font-size: fz(14, 16);
+  letter-spacing: 0.04em;
+  font-weight: var(--fw-semibold);
+  line-height: 2;
+  margin-block-start: 65px;
 }
-
 @media (--md) {
-  .p-section-luckybag__header {
-    margin-bottom: var(--spacing-3xl);
+  .p-section-luckybag__description {
+    margin-block-start: 50px;
   }
 }
-
 .p-section-luckybag__items {
   display: grid;
   gap: 60px;
+  margin-block-start: clamp(10px, 5vw, 43px);
 }
 
 @media (--md) {

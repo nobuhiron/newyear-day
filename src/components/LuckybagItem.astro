@@ -63,8 +63,10 @@ const rightContents = contents.slice(Math.ceil(contents.length / 2));
     }
   </div>
   <div class='c-luckybag-item__info'>
-    <div class='c-luckybag-item__price'>{price}</div>
-    <h3 class='c-luckybag-item__title'>{title}</h3>
+    <header class='c-luckybag-item__info-header'>
+      <div class='c-luckybag-item__price'>{price}</div>
+      <h3 class='c-luckybag-item__title'>{title}</h3>
+    </header>
     <div class='c-luckybag-item__contents'>
       <div class='c-luckybag-item__contents-column'>
         {
