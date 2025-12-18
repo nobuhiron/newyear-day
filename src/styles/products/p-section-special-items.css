@@ -4,6 +4,7 @@
   background: linear-gradient(100.88deg, #92090b 0.61%, #80080a 90.21%);
   padding-block-start: clamp(60px, 5vw, 190px);
   padding-block-end: clamp(86px, 5vw, 210px);
+  position: relative;
 }
 .p-section-special-items__inner {
   margin-inline: auto;
@@ -23,4 +24,113 @@
   .p-section-special-items__items {
     gap: var(--spacing-5xl);
   }
+}
+
+.p-section-special-items__decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.p-section-special-items__decoration img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 左上の装飾 */
+.p-section-special-items__decoration--wave-top-left {
+  top: 0;
+  left: 0;
+  width: clamp(150px, 15vw, 300px);
+}
+
+/* 右上の装飾 */
+.p-section-special-items__decoration--cloud-top-right {
+  top: 0;
+  right: 0;
+  width: clamp(150px, 15vw, 300px);
+}
+
+/* 左下の装飾 */
+.p-section-special-items__decoration--wave-bottom-left {
+  bottom: 0;
+  left: 0;
+  width: clamp(150px, 15vw, 300px);
+}
+
+/* 右下の装飾 */
+.p-section-special-items__decoration--cloud-bottom-right {
+  bottom: 0;
+  right: 0;
+  width: clamp(150px, 15vw, 300px);
+}
+
+/* 左側のパターン装飾 */
+.p-section-special-items__decoration--pattern-left {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: clamp(100px, 10vw, 200px);
+}
+
+/* 右側のパターン装飾 */
+.p-section-special-items__decoration--pattern-right {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: clamp(100px, 10vw, 200px);
+}
+
+/* 上部の背景パターン（波模様） */
+.p-section-special-items__decoration--seigaiha-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  opacity: 0.3;
+}
+
+/* 下部の背景パターン（波模様） */
+.p-section-special-items__decoration--seigaiha-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  opacity: 0.3;
+}
+
+/* レスポンシブ対応：モバイルでは一部の装飾要素を非表示 */
+@media (max-width: 767px) {
+  .p-section-special-items__decoration--pattern-left,
+  .p-section-special-items__decoration--pattern-right {
+    display: none;
+  }
+
+  .p-section-special-items__decoration--wave-top-left,
+  .p-section-special-items__decoration--cloud-top-right,
+  .p-section-special-items__decoration--wave-bottom-left,
+  .p-section-special-items__decoration--cloud-bottom-right {
+    width: clamp(100px, 20vw, 200px);
+  }
+
+  .p-section-special-items__decoration--seigaiha-top,
+  .p-section-special-items__decoration--seigaiha-bottom {
+    opacity: 0.2;
+  }
+}
+
+@media (--md) {
+  .p-section-special-items__decoration--pattern-left,
+  .p-section-special-items__decoration--pattern-right {
+    display: block;
+  }
+}
+
+.p-section-special-items__wa-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }

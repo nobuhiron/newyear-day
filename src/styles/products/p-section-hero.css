@@ -1,0 +1,95 @@
+@import '../global/variables.css';
+
+.p-section-hero {
+  position: relative;
+  container-type: inline-size;
+}
+
+.p-section-hero__nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.p-section-hero__hamburger {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.3s ease;
+}
+
+.p-section-hero__hamburger::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45px;
+  height: 45px;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-hamburger-bg);
+  z-index: -1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.p-section-hero__hamburger:focus-visible {
+  outline: 1px solid var(--color-on-dark);
+  outline-offset: 1px;
+  border-radius: 4px;
+}
+
+.p-section-hero__hamburger-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-on-dark);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+@container (max-width: 1100px) {
+  .p-section-hero__hamburger {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.p-section-hero.is-nav-open .p-section-hero__hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.p-section-hero.is-nav-open .p-section-hero__hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.p-section-hero.is-nav-open .p-section-hero__hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.p-section-hero.is-nav-open .p-section-hero__hamburger::before {
+  border: 1px solid var(--color-on-dark);
+}
+.p-section-hero__line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(277.31deg, #bb8535 4.31%, #fff1da 91.9%);
+  border: 1px solid var(--color-border-tertiary);
+}

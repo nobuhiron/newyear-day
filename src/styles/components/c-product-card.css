@@ -43,7 +43,7 @@
   font-weight: var(--bold);
   font-size: fz(16, 18);
   display: flex;
-  align-items: center;
+  align-items: start;
   column-gap: 6px;
 }
 
@@ -52,36 +52,37 @@
   display: inline-block;
   width: 16px;
   height: 16px;
-  background-image: url('./public/hand.svg');
+  background-image: url('./public/hana.svg');
   background-size: contain;
   background-repeat: no-repeat;
   flex-shrink: 0;
+  margin-block-start: 6px;
 }
 
 .c-product-card__price {
-  font-size: 24px;
-  font-weight: var(--fw-bold);
-  color: var(--color-red);
+  color: var(--color-price-secondary);
   text-align: right;
+  padding-block-end: clamp(2px, 2vw, 8px);
+  border-bottom: 1px solid var(--color-card-frame);
 }
 
-@media (--md) {
-  .c-product-card__price {
-    grid-row: 2;
-  }
+.c-product-card__price-yen {
+  font-size: 24px;
+  font-weight: var(--fw-medium);
 }
 
+.c-product-card__price-value {
+  font-size: 32px;
+  font-weight: var(--fw-medium);
+  letter-spacing: -0.04em;
+}
+
+.c-product-card__price-unit {
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+}
 .c-product-card__description {
-  font-family: var(--font-jp--serif);
-  line-height: var(--line-height-base);
-  color: var(--color-text);
-  margin: 0;
-}
-
-@media (--md) {
-  .c-product-card__description {
-    grid-row: 3;
-  }
+  font-size: fz(14, 18);
 }
 
 .c-product-card__button {

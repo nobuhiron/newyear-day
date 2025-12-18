@@ -1,4 +1,96 @@
 /**
+ * Navigation menu functionality
+ * Handles mobile hamburger menu toggle
+ */
+export function initNavMenu() {
+  const hero = document.querySelector('.p-section-hero');
+  const nav = document.querySelector('.p-block-nav-mobile');
+  const hamburger = document.querySelector('[data-nav-toggle]');
+  const navLinks = nav?.querySelectorAll('.p-block-nav-mobile__link');
+
+  if (!hero || !nav || !hamburger) return;
+
+  let scrollPosition = 0;
+
+  function openNav() {
+    // 現在のスクロール位置を保存
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    hero.classList.add('is-nav-open');
+    nav.classList.add('is-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'メニューを閉じる');
+
+    // bodyとhtmlのスクロールを無効化し、スクロール位置を固定
+    // position: fixedとtopで視覚的に同じ位置を維持
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+  }
+
+  function closeNav() {
+    hero.classList.remove('is-nav-open');
+    nav.classList.remove('is-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'メニューを開く');
+
+    // スクロールを有効化（アニメーションなしで元の位置に戻す）
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+
+    // アニメーションなしで元のスクロール位置に戻す
+    window.scrollTo({
+      top: scrollPosition,
+      behavior: 'auto',
+    });
+  }
+
+  function toggleNav() {
+    if (nav.classList.contains('is-open')) {
+      closeNav();
+    } else {
+      openNav();
+    }
+  }
+
+  // Hamburger button click
+  hamburger.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleNav();
+  });
+
+  // Close nav when clicking on nav links
+  navLinks?.forEach((link) => {
+    link.addEventListener('click', () => {
+      closeNav();
+    });
+  });
+
+  // Close nav when clicking on overlay (outside nav list)
+  nav.addEventListener('click', (e) => {
+    if (e.target === nav) {
+      closeNav();
+    }
+  });
+
+  // Close nav on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+      closeNav();
+    }
+  });
+}
+
+/**
  * Shipping Expandable Section functionality
  * Handles expanding/collapsing the shipping schedule section
  */
@@ -64,4 +156,3 @@ export function initShippingModal() {
     });
   });
 }
-

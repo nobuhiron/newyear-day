@@ -1,0 +1,37 @@
+---
+interface Props {
+  href: string;
+  text: string;
+  modalTrigger?: string;
+}
+
+const { href, text, modalTrigger } = Astro.props;
+---
+
+<li class='p-block-nav-pc__item'>
+  <a
+    href={href}
+    class='p-block-nav-pc__link'
+    {...(modalTrigger && { 'data-modal-trigger': modalTrigger })}
+  >
+    <Fragment set:html={text} />
+    <svg
+      class='p-block-nav-pc__icon'
+      aria-hidden='true'
+      width='12'
+      height='12'
+      viewBox='0 0 12 12'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path
+        d='M3 4.5L6 7.5L9 4.5'
+        stroke='currentColor'
+        stroke-width='1.5'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+      />
+    </svg>
+  </a>
+</li>
+

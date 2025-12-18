@@ -5,10 +5,12 @@
   /* Base Colors */
   --color-white: #fff;
   --color-black: #333;
+  --color-dark-gray: #1a1a1a;
   --color-beige: #d4b682;
   --color-red: #bf1b1d;
   --color-bright-red: #de010d;
   --color-mid-red: #c02335;
+  --color-mid-brown: #64000b;
   --color-dark-red: #a61f29;
   --color-mid-beige: #c4934a;
   --color-dark-beige: #a17025;
@@ -20,12 +22,17 @@
 
   /* Semantic Colors */
   --color-text: var(--color-black);
+  --color-on-dark: var(--color-white);
   --color-main: var(--color-red);
   --color-price-secondary: var(--color-bright-red);
+  --color-border-primary: var(--color-dark-red);
   --color-border-secondary: var(--color-beige);
+  --color-border-tertiary: var(--color-dark-beige);
   --color-card-frame: var(--color-mid-beige);
   --color-background: var(--color-gradient-red);
   --color-accent: var(--color-gradient-beige);
+  --color-footer: var(--color-dark-gray);
+  --color-hamburger-bg: var(--color-mid-brown);
 }
 
 /* -------------------

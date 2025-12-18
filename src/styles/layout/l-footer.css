@@ -1,51 +1,25 @@
 @import '../global/variables.css';
 
 .l-footer {
-  background-color: var(--color-black);
-  color: var(--color-white);
-  padding-top: 64px;
-  padding-bottom: 64px;
+  background-color: var(--color-footer);
+  padding-top: 80px;
+  padding-bottom: clamp(90px, 5vw, 130px);
 }
 
 .l-footer__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
-}
-
-.l-footer__logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.l-footer__logo-jp {
-  line-height: 1.2;
-  margin-bottom: 4px;
-}
-
-.l-footer__logo-en {
-  font-family: var(--font-en);
-  line-height: 1.2;
-}
-
-.l-footer__nav {
-  width: 100%;
+  gap: clamp(50px, 4vw, 90px);
 }
 
 .l-footer__nav-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  row-gap: 24px;
 }
-
-@media (--md) {
+@media (--xl) {
   .l-footer__nav-list {
     flex-direction: row;
     flex-wrap: wrap;
@@ -54,39 +28,23 @@
   }
 }
 
-.l-footer__nav-item {
-  display: flex;
-  align-items: center;
-  margin: 0;
-}
-
-@media (--md) {
-  .l-footer__nav-item:not(:first-child) {
-    margin-left: 16px;
+@media (--xl) {
+  .l-footer__nav-item {
+    border-right: 1px solid var(--color-on-dark);
   }
-}
-
-.l-footer__separator {
-  display: none;
-  width: 1px;
-  height: 1em;
-  background-color: var(--color-white);
-  margin-right: 16px;
-}
-
-@media (--md) {
-  .l-footer__separator {
-    display: block;
+  .l-footer__nav-item:first-child {
+    border-left: 1px solid var(--color-on-dark);
   }
 }
 
 .l-footer__nav-link {
-  color: var(--color-white);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
+  font-size: fz(13, 14);
+  padding-inline: 20px;
+  color: var(--color-on-dark);
+  font-weight: var(--fw-medium);
   transition: opacity 0.2s;
+  display: block;
+  line-height: 1;
 }
 
 .l-footer__nav-link:hover {
@@ -94,7 +52,7 @@
 }
 
 .l-footer__nav-link:focus-visible {
-  outline: 2px solid var(--color-white);
+  outline: 2px solid var(--color-on-dark);
   outline-offset: 2px;
 }
 
@@ -102,5 +60,5 @@
   width: 12px;
   height: 12px;
   flex-shrink: 0;
+  margin-inline-start: 0.5rem;
 }
-

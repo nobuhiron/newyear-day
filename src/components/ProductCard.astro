@@ -69,7 +69,11 @@ const isImageMetadata = (
   <div class='c-product-card__content'>
     <header class='c-product-card__header'>
       <h2 class='c-product-card__title'>{title}</h2>
-      <div class='c-product-card__price'>{price}</div>
+      <div class='c-product-card__price'>
+        <span class='c-product-card__price-yen'>¥</span>
+        <span class='c-product-card__price-value'>{price}</span>
+        <span class='c-product-card__price-unit'>(税込)</span>
+      </div>
     </header>
     <div class='c-product-card__body'>
       <p class='c-product-card__description'>{description}</p>

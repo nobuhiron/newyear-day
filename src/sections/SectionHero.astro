@@ -1,0 +1,42 @@
+---
+import { getImage } from 'astro:assets';
+import pcMv from '../assets/images/PC_MV.jpg';
+import spMv from '../assets/images/SP_MV.jpg';
+import BlockNavPC from '../blocks/BlockNavPC.astro';
+import BlockNavMobile from '../blocks/BlockNavMobile.astro';
+
+const pcMvOptimized = await getImage({ src: pcMv, format: 'webp' });
+const spMvOptimized = await getImage({ src: spMv, format: 'webp' });
+---
+
+<section class='p-section-hero' aria-label='ヒーロー画像'>
+  <picture class='p-section-hero__picture'>
+    <source
+      media='(min-width: 768px)'
+      srcset={pcMvOptimized.src}
+      width={pcMv.width || 1440}
+      height={pcMv.height || 600}
+    />
+    <img
+      src={spMvOptimized.src}
+      alt='森半 tea&coffee 年末年始キャンペーン'
+      class='p-section-hero__image'
+      width={spMv.width || 768}
+      height={spMv.height || 600}
+      loading='eager'
+    />
+  </picture>
+  <button
+    class='p-section-hero__hamburger'
+    aria-label='メニューを開く'
+    aria-expanded='false'
+    data-nav-toggle
+  >
+    <span class='p-section-hero__hamburger-line'></span>
+    <span class='p-section-hero__hamburger-line'></span>
+    <span class='p-section-hero__hamburger-line'></span>
+  </button>
+  <BlockNavPC />
+  <BlockNavMobile />
+  <div class='p-section-hero__line'></div>
+</section>

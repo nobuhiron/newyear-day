@@ -1,0 +1,82 @@
+@import '../global/variables.css';
+
+.p-block-nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  max-width: 100%;
+  background-color: #830e1b;
+  height: 61.5vh;
+  min-height: fit-content;
+  overflow-y: auto;
+}
+
+.p-block-nav-mobile::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  height: 100px;
+  width: 150px;
+  background: url('/deco-matu-1.svg') no-repeat center center;
+  z-index: 1;
+}
+.p-block-nav-mobile.is-open {
+  display: block;
+}
+
+.p-block-nav-mobile__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: var(--layout-max-width-inner);
+  margin-inline: auto;
+  padding-inline: 40px;
+  padding-block-start: 100px;
+  padding-block-end: 60px;
+  min-height: fit-content;
+  position: relative;
+  z-index: 2;
+}
+
+.p-block-nav-mobile__item {
+  border-bottom: 1px solid #c92739;
+}
+
+.p-block-nav-mobile__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 16px 10px;
+  color: var(--color-on-dark);
+  transition: opacity 0.2s;
+}
+.p-block-nav-mobile__item:first-child .p-block-nav-mobile__link {
+  padding-block-start: 0;
+}
+
+.p-block-nav-mobile__link:hover {
+  opacity: 0.7;
+}
+
+.p-block-nav-mobile__link:focus-visible {
+  outline: 2px solid var(--color-on-dark);
+  outline-offset: -2px;
+}
+
+.p-block-nav-mobile__icon {
+  width: 12px;
+  height: auto;
+  flex-shrink: 0;
+  margin-left: 8px;
+  transform: rotate(-90deg);
+  color: var(--color-on-dark);
+}
+
+@media (min-width: 1101px) {
+  .p-block-nav-mobile {
+    display: none !important;
+  }
+}

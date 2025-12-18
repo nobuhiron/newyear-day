@@ -14,6 +14,7 @@ body {
   overflow-wrap: break-word;
   /* makeshop用の特別な対応 scroll-topなどが効かない為 */
   height: auto !important;
+  scrollbar-gutter: stable;
 
   color: var(--color-black);
   font-family: var(--font-jp);

@@ -8,19 +8,21 @@
 .p-section-party__inner {
   max-width: var(--layout-max-width-inner);
   margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: clamp(40px, 5vw, 60px);
 }
 
 .p-section-party__products {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
+  row-gap: 20px;
 }
 
 @media (--md) {
   .p-section-party__products {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: var(--spacing-lg);
+    gap: 40px;
   }
 }
-
