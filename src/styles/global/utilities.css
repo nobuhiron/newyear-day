@@ -12,3 +12,21 @@
   clip: rect(0 0 0 0);
   overflow: hidden; white-space: nowrap;
 }
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-main);
+  color: var(--color-white);
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 1000;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}

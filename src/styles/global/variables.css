@@ -20,6 +20,18 @@
   --color-gradient-red: linear-gradient(to right, #db2740, #931c21);
   --color-gradient-beige: linear-gradient(to right, #fff1da, #bb8535);
 
+  /* Additional Base Colors */
+  --color-dark-red-alt: #92090b;
+  --color-dark-red-alt-2: #80080a;
+  --color-nav-bg: #830e1b;
+  --color-nav-border: #c92739;
+  --color-beige-light: #fff1da;
+  --color-beige-medium: #bb8535;
+  --color-beige-pale: rgba(241, 221, 184, 0.02);
+  --color-beige-pale-alt: rgba(241, 221, 184, 0.2);
+  --color-shadow: rgba(0, 0, 0, 0.2);
+  --color-bg: var(--color-white);
+
   /* Semantic Colors */
   --color-text: var(--color-black);
   --color-on-dark: var(--color-white);
@@ -33,6 +45,16 @@
   --color-accent: var(--color-gradient-beige);
   --color-footer: var(--color-dark-gray);
   --color-hamburger-bg: var(--color-mid-brown);
+
+  /* Semantic Colors */
+  --color-section-special-bg: linear-gradient(100.88deg, var(--color-dark-red-alt) 0.61%, var(--color-dark-red-alt-2) 90.21%);
+  --color-section-shipping-bg: linear-gradient(285.91deg, var(--color-brown) 11.22%, var(--color-mid-red) 97.45%);
+  --color-section-luckybag-line: linear-gradient(277.31deg, var(--color-beige-medium) 4.31%, var(--color-beige-light) 91.9%);
+  --color-section-hero-line: var(--color-section-luckybag-line);
+  --color-section-luckybag-notice-overlay: linear-gradient(180deg, var(--color-beige-pale) 0%, var(--color-beige-pale-alt) 100%);
+  --color-nav-mobile-bg: var(--color-nav-bg);
+  --color-nav-mobile-border: var(--color-nav-border);
+  --color-shadow-default: var(--color-shadow);
 }
 
 /* -------------------

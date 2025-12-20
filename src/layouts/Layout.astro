@@ -25,7 +25,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+    <main id="main-content">
+      <slot />
+    </main>
     <script>
       import { initNavMenu, initShippingModal } from '../scripts/modal.js';
 
@@ -34,6 +37,5 @@ const { title } = Astro.props;
         initShippingModal();
       });
     </script>
-  </body>
-  <Footer />
+    <Footer />
 </html>

@@ -13,7 +13,7 @@ const calendarSpSrc = calendarSp.src as string;
         <div class='p-section-shipping__preview'>
           <header class='p-section-shipping__header'>
             <div class='p-section-shipping__icon' aria-hidden='true'>
-              <image src='../src/assets/images/noshi-image.png' />
+              <img src='../src/assets/images/noshi-image.png' alt='' />
             </div>
             <h2 class='p-section-shipping__title' id='shipping-title'>
               年末年始の発送についての案内
@@ -37,30 +37,32 @@ const calendarSpSrc = calendarSp.src as string;
               </p>
             </div>
           </header>
-          <button
-            class='p-section-shipping__toggle'
-            aria-expanded='false'
-            aria-controls='shipping-content'
-            aria-label='詳細を表示'
-          >
-            詳しく見る
-            <svg
-              class='p-section-shipping__toggle-icon'
-              aria-hidden='true'
-              width='16'
-              height='16'
-              viewBox='0 0 16 16'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
+          <div class='p-section-shipping__toggle-wrapper'>
+            <button
+              class='p-section-shipping__toggle'
+              aria-expanded='false'
+              aria-controls='shipping-content'
+              aria-label='詳細を表示'
             >
-              <path
-                d='M4 6L8 10L12 6'
-                stroke='currentColor'
-                stroke-width='2'
-                stroke-linecap='round'
-                stroke-linejoin='round'></path>
-            </svg>
-          </button>
+              詳しく見る
+              <svg
+                class='p-section-shipping__toggle-icon'
+                aria-hidden='true'
+                width='16'
+                height='16'
+                viewBox='0 0 16 16'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  d='M4 6L8 10L12 6'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'></path>
+              </svg>
+            </button>
+          </div>
         </div>
 
         <div
@@ -169,29 +171,31 @@ const calendarSpSrc = calendarSp.src as string;
             </div>
           </div>
         </div>
-        <button
-          class='p-section-shipping__close'
-          aria-label='閉じる'
-          aria-controls='shipping-content'
-        >
-          閉じる
-          <svg
-            class='p-section-shipping__close-icon'
-            aria-hidden='true'
-            width='16'
-            height='16'
-            viewBox='0 0 16 16'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
+        <div class='p-section-shipping__close-wrapper'>
+          <button
+            class='p-section-shipping__close'
+            aria-label='閉じる'
+            aria-controls='shipping-content'
           >
-            <path
-              d='M4 10L8 6L12 10'
-              stroke='currentColor'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'></path>
-          </svg>
-        </button>
+            閉じる
+            <svg
+              class='p-section-shipping__close-icon'
+              aria-hidden='true'
+              width='16'
+              height='16'
+              viewBox='0 0 16 16'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                d='M4 10L8 6L12 10'
+                stroke='currentColor'
+                stroke-width='2'
+                stroke-linecap='round'
+                stroke-linejoin='round'></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>

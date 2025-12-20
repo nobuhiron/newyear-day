@@ -1,7 +1,7 @@
 @import '../global/variables.css';
 
 .p-section-shipping {
-  background: linear-gradient(285.91deg, #931c21 11.22%, #db2740 97.45%);
+  background: var(--color-section-shipping-bg);
   padding-block-start: clamp(60px, 5vw, 90px);
   padding-block-end: clamp(60px, 5vw 100px);
   position: relative;
@@ -152,6 +152,11 @@
   margin-bottom: 0;
 }
 
+.p-section-shipping__toggle-wrapper {
+  max-width: 322px;
+  margin-inline: auto;
+}
+
 .p-section-shipping__toggle {
   width: 100%;
   padding: 16px 24px;
@@ -192,6 +197,10 @@
   display: none;
 }
 
+.p-section-shipping__close-wrapper {
+  max-width: 322px;
+  margin-inline: auto;
+}
 .p-section-shipping__close {
   width: 100%;
   padding: 16px 24px;

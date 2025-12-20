@@ -3,12 +3,16 @@
  * Handles mobile hamburger menu toggle
  */
 export function initNavMenu() {
-  const hero = document.querySelector('.p-section-hero');
-  const nav = document.querySelector('.p-block-nav-mobile');
-  const hamburger = document.querySelector('[data-nav-toggle]');
-  const navLinks = nav?.querySelectorAll('.p-block-nav-mobile__link');
+  try {
+    const hero = document.querySelector('.p-section-hero');
+    const nav = document.querySelector('.p-block-nav-mobile');
+    const hamburger = document.querySelector('[data-nav-toggle]');
+    const navLinks = nav?.querySelectorAll('.p-block-nav-mobile__link');
 
-  if (!hero || !nav || !hamburger) return;
+    if (!hero || !nav || !hamburger) {
+      console.warn('Navigation elements not found');
+      return;
+    }
 
   let scrollPosition = 0;
 
@@ -82,12 +86,15 @@ export function initNavMenu() {
     }
   });
 
-  // Close nav on escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
-      closeNav();
-    }
-  });
+    // Close nav on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        closeNav();
+      }
+    });
+  } catch (error) {
+    console.error('Error initializing navigation menu:', error);
+  }
 }
 
 /**
@@ -96,8 +103,12 @@ export function initNavMenu() {
  */
 
 export function initShippingModal() {
-  const section = document.getElementById('shipping');
-  if (!section) return;
+  try {
+    const section = document.getElementById('shipping');
+    if (!section) {
+      console.warn('Shipping section not found');
+      return;
+    }
 
   const toggleButton = section.querySelector('.p-section-shipping__toggle');
   const closeButton = section.querySelector('.p-section-shipping__close');
@@ -143,16 +154,19 @@ export function initShippingModal() {
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  // Trigger buttons/links (from SectionNav)
-  triggers.forEach((trigger) => {
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (!section.classList.contains('is-expanded')) {
-        expandSection();
-      } else {
-        // If already expanded, just scroll to it
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    // Trigger buttons/links (from SectionNav)
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!section.classList.contains('is-expanded')) {
+          expandSection();
+        } else {
+          // If already expanded, just scroll to it
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     });
-  });
+  } catch (error) {
+    console.error('Error initializing shipping modal:', error);
+  }
 }

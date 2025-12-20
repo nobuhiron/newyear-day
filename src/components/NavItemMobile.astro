@@ -3,17 +3,21 @@ interface Props {
   href: string;
   text: string;
   modalTrigger?: string;
+  target?: string;
+  rel?: string;
 }
 
-const { href, text, modalTrigger } = Astro.props;
+const { href, text, modalTrigger, target, rel } = Astro.props;
 const uniqueId = `clip0_${Math.random().toString(36).substr(2, 9)}`;
 ---
 
 <li class='p-block-nav-mobile__item'>
   <a
     href={href}
+    {...target && { target }}
+    {...rel && { rel }}
     class='p-block-nav-mobile__link'
-    {...(modalTrigger && { 'data-modal-trigger': modalTrigger })}
+    {...modalTrigger && { 'data-modal-trigger': modalTrigger }}
   >
     {text}
     <svg
@@ -30,8 +34,7 @@ const uniqueId = `clip0_${Math.random().toString(36).substr(2, 9)}`;
           fill-rule='evenodd'
           clip-rule='evenodd'
           d='M11.2891 10.1571L5.63211 4.50006L7.04611 3.08606L11.9961 8.03606L16.9461 3.08606L18.3601 4.50006L12.7031 10.1571C12.5156 10.3445 12.2613 10.4498 11.9961 10.4498C11.7309 10.4498 11.4766 10.3445 11.2891 10.1571Z'
-          fill='currentColor'
-        />
+          fill='currentColor'></path>
       </g>
       <defs>
         <clipPath id={uniqueId}>
@@ -39,11 +42,9 @@ const uniqueId = `clip0_${Math.random().toString(36).substr(2, 9)}`;
             width='12'
             height='24'
             fill='white'
-            transform='translate(24 1.04907e-06) rotate(90)'
-          />
+            transform='translate(24 1.04907e-06) rotate(90)'></rect>
         </clipPath>
       </defs>
     </svg>
   </a>
 </li>
-
