@@ -1,0 +1,17 @@
+---
+import buttonArrowSvg from '../assets/icons/button-arrow.svg?raw';
+
+interface Props {
+  href: string;
+  text?: string;
+  variant?: 'primary' | 'secondary';
+}
+
+const { href, text = '詳しくはこちら', variant = 'primary' } = Astro.props;
+---
+
+<a href={href} class="c-button" data-variant={variant}>
+  {text}
+  <span class='c-button__icon' set:html={buttonArrowSvg} aria-hidden='true' />
+</a>
+

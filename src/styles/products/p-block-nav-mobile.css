@@ -21,8 +21,9 @@
   left: 0;
   height: 100px;
   width: 150px;
-  background: url('/deco-matu-1.svg') no-repeat center center;
+  background: url('/assets/images/svg/deco-matu-1.svg') no-repeat center center;
   z-index: 1;
+  opacity: 48%;
 }
 .p-block-nav-mobile.is-open {
   display: block;
@@ -67,7 +68,7 @@
 }
 
 .p-block-nav-mobile__icon {
-  width: 12px;
+  width: 24px;
   height: auto;
   flex-shrink: 0;
   margin-left: 8px;

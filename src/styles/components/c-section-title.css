@@ -6,7 +6,7 @@
 }
 
 .c-section-title__jp {
-  font-family: var(--font-jp--serif);
+  font-family: var(--font-jp);
   font-weight: var(--fw-semibold);
   font-size: fz(18, 20);
   letter-spacing: 0.32em;

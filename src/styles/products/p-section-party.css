@@ -2,15 +2,19 @@
 
 .p-section-party {
   background: var(--color-gradient-red);
-  padding-block: clamp(60px, 5vw, 120px);
+  padding-block: clamp(60px, 9vw, 120px);
+  position: relative;
+  overflow: hidden;
 }
 
 .p-section-party__inner {
   max-width: var(--layout-max-width-inner);
   margin-inline: auto;
   display: grid;
+  gap: clamp(40px, 7vw, 50px);
   grid-template-columns: 1fr;
-  row-gap: clamp(40px, 5vw, 60px);
+  position: relative;
+  z-index: 2;
 }
 
 .p-section-party__products {
@@ -22,7 +26,70 @@
 @media (--md) {
   .p-section-party__products {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: auto 1fr;
     gap: 40px;
+  }
+}
+
+/* ========================================
+   装飾要素
+   ======================================== */
+.p-section-party__decoration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.p-section-party__decoration img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+/* 上部のジオメトリック装飾 */
+.p-section-party__decoration-geometry-top {
+  top: -3%;
+  left: -37%;
+  width: min(628px, 122vw);
+}
+
+@media (--lg) {
+  .p-section-party__decoration-geometry-top {
+    top: 6%;
+    left: -11%;
+  }
+}
+
+/* 右側の雲装飾 */
+.p-section-party__decoration-cloud-right {
+  bottom: 0%;
+  right: -23%;
+  width: min(453px, 58vw);
+}
+
+@media (--lg) {
+  .p-section-party__decoration-cloud-right {
+    top: 5%;
+    bottom: revert;
+    right: -11%;
+    width: min(453px, 58vw);
+  }
+}
+
+/* 左側の雲装飾 */
+.p-section-party__decoration-cloud-left {
+  top: 45%;
+  left: -30%;
+  width: min(440px, 58vw);
+}
+
+@media (--lg) {
+  .p-section-party__decoration-cloud-left {
+    top: revert;
+    bottom: 3%;
+    left: -15%;
+    width: min(440px, 58vw);
+    transform: scaleX(-1);
   }
 }

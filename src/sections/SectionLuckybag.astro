@@ -2,10 +2,11 @@
 import LuckybagItem from '../components/LuckybagItem.astro';
 import happybagTea from '../assets/images/happybag_tea.png';
 import happybagCoffee from '../assets/images/happybag_coffee.png';
+import { applyBaseUrl } from '../utils/image';
 ---
 
-<section id='luckybag' class='p-section-luckybag'>
-  <div class='p-section-luckybag__line'>
+<section id='luckybag' class='p-section-luckybag' aria-labelledby='luckybag-title'>
+  <div class='p-section-luckybag__line' aria-hidden='true'>
     <span class='p-section-luckybag__line-upper'></span>
     <span class='p-section-luckybag__line-middle'></span>
     <span class='p-section-luckybag__line-lower'></span>
@@ -14,16 +15,17 @@ import happybagCoffee from '../assets/images/happybag_coffee.png';
     <div class='p-section-luckybag__inner'>
       <header class='p-section-luckybag__header'>
         <p class='p-section-luckybag__catchphrase'>HAPPY BAG LINE UP!</p>
-        <h2 class='p-section-luckybag__title'>
-          <div class='p-section-luckybag__title-fuku'>
-            <img src='/fuku.svg' alt='' />
-          </div>
-          <div class='p-section-luckybag__title-hana'>
-            <img src='/hana-title.svg' alt='' />
-          </div>
-          <div class='p-section-luckybag__title-fukuro'>
-            <img src='/fukuro.svg' alt='' />
-          </div>
+        <h2 id='luckybag-title' class='p-section-luckybag__title'>
+          <span class='visually-hidden'>福袋ラインナップ</span>
+          <span class='p-section-luckybag__title-fuku'>
+            <img src={applyBaseUrl('/assets/images/svg/fuku.svg')} alt='福' />
+          </span>
+          <span class='p-section-luckybag__title-hana'>
+            <img src={applyBaseUrl('/assets/images/svg/hana-title.svg')} alt='' />
+          </span>
+          <span class='p-section-luckybag__title-fukuro'>
+            <img src={applyBaseUrl('/assets/images/svg/fukuro.svg')} alt='袋' />
+          </span>
         </h2>
         <p class='p-section-luckybag__description'>
           毎年ご好評いただいている<br
@@ -31,9 +33,10 @@ import happybagCoffee from '../assets/images/happybag_coffee.png';
           />ハッピーバッグが2025年も登場！<br />
           人気の定番アイテムから隠れた人気商品が<br
             class='is-sm'
-          />入った"ちょっとお得に"楽しめる福袋。
+          />入った"ちょっとお得に"楽しめる福袋。<br>
+          はじめての方にも、リピートの方にもおすすめ！
         </p>
-        はじめての方にも、リピートの方にもおすすめ！
+
       </header>
       <div class='p-section-luckybag__items'>
         <LuckybagItem
@@ -46,11 +49,11 @@ import happybagCoffee from '../assets/images/happybag_coffee.png';
           title='[ 森半のお茶セット ]'
           price='5,400'
           contents={[
-            { name: '抹茶ヴァッフェル', quantity: '2' },
             { name: '大福茶', quantity: '1' },
             { name: '勅題抹茶', quantity: '1' },
             { name: '香ばし黒豆ほうじ茶', quantity: '1' },
             { name: '抹茶フィナンシェ', quantity: '2' },
+            { name: '抹茶ヴァッフェル', quantity: '2' },
             { name: 'ほうじ茶ヴァッフェル', quantity: '2' },
             { name: '八十八夜玉露', quantity: '1' },
             { name: '卓上カレンダー', quantity: '1' },
@@ -69,9 +72,8 @@ import happybagCoffee from '../assets/images/happybag_coffee.png';
           price='5,400'
           contents={[
             { name: 'コーヒーギフトセットいちまつ', quantity: '1' },
-            { name: 'KFK オリジナルキャニスター缶', quantity: '1' },
             { name: 'ホリデーブレンド [豆: 500g]', quantity: '1' },
-            { name: 'KFK 不織布バッグ', quantity: '1' },
+            { name: 'KFK オリジナルキャニスター缶', quantity: '1' },
             {
               name: 'ロマンスコーヒーセレクションエチオピア [10g×5P]',
               quantity: '1',
@@ -80,6 +82,7 @@ import happybagCoffee from '../assets/images/happybag_coffee.png';
               name: 'ロマンスコーヒーセレクションガラパゴス [10g×5P]',
               quantity: '1',
             },
+            { name: 'KFK 不織布バッグ', quantity: '1' },
           ]}
           buttonHref='#'
           reverse={true}
@@ -111,30 +114,30 @@ import happybagCoffee from '../assets/images/happybag_coffee.png';
     class='p-section-luckybag__decoration p-section-luckybag__decoration-cloud-top-right'
     aria-hidden='true'
   >
-    <img src='/deco-wa-sozai-1.svg' alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-1.svg')} alt='' />
   </div>
   <div
     class='p-section-luckybag__decoration p-section-luckybag__decoration-cloud-top-left'
     aria-hidden='true'
   >
-    <img src='/deco-wa-sozai-3.svg' alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-3.svg')} alt='' />
   </div>
   <div
     class='p-section-luckybag__decoration p-section-luckybag__decoration-cloud-middle'
     aria-hidden='true'
   >
-    <img src='/deco-wa-sozai-1.svg' alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-1.svg')} alt='' />
   </div>
   <div
     class='p-section-luckybag__decoration p-section-luckybag__decoration-pattern'
     aria-hidden='true'
   >
-    <img src='/deco-matu-1.svg' alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-matu-1.svg')} alt='' />
   </div>
   <div class='p-section-luckybag__wa-line' aria-hidden='true'>
     <picture>
-      <source media='(min-width: 768px)' srcset='/wa-line-pc.svg' />
-      <img src='/wa-line-sp.svg' alt='' />
+      <source media='(min-width: 768px)' srcset={applyBaseUrl('/assets/images/svg/wa-line-pc.svg')} />
+      <img src={applyBaseUrl('/assets/images/svg/wa-line-sp.svg')} alt='' />
     </picture>
   </div>
 </section>

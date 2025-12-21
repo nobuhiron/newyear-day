@@ -1,4 +1,6 @@
+@import './c-button.css';
 @import './c-product-card.css';
 @import './c-special-item.css';
 @import './c-section-title.css';
 @import './c-luckybag-item.css';
+@import './c-scroll-to-top.css';

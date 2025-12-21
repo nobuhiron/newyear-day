@@ -25,7 +25,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   transition: transform 0.3s ease;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .p-section-hero.is-nav-open .p-section-hero__hamburger-line:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
 }
 
 .p-section-hero.is-nav-open .p-section-hero__hamburger-line:nth-child(2) {
@@ -78,7 +78,7 @@
 }
 
 .p-section-hero.is-nav-open .p-section-hero__hamburger-line:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .p-section-hero.is-nav-open .p-section-hero__hamburger::before {

@@ -1,11 +1,15 @@
 ---
-import Image from 'astro/components/Image.astro';
-import type { ImageMetadata } from 'astro';
+import { getImage } from 'astro:assets';
+import Button from './Button.astro';
+import {
+  isImageMetadata,
+  type ImageSource,
+  applyBaseUrlToImageResult,
+  applyBaseUrl,
+} from '../utils/image';
 
 interface Props {
-  image:
-    | { src: ImageMetadata; alt: string; width?: number; height?: number }
-    | { src: string; alt: string; width?: number; height?: number };
+  image: ImageSource;
   title: string;
   price: string;
   contents: Array<{ name: string; quantity: string }>;
@@ -22,37 +26,37 @@ const {
   reverse = false,
 } = Astro.props;
 
-// 画像オブジェクトか文字列かを判定
-const isImageMetadata = (
-  img: typeof image
-): img is {
-  src: ImageMetadata;
-  alt: string;
-  width?: number;
-  height?: number;
-} => {
-  return typeof img.src === 'object' && img.src !== null && 'src' in img.src;
-};
+// If ImageMetadata, use getImage() to optimize and apply base URL
+// If string path, apply base URL directly
+let optimizedImage: { src: string; width?: number; height?: number } | null = null;
+if (isImageMetadata(image)) {
+  const result = await getImage({ src: image.src });
+  optimizedImage = applyBaseUrlToImageResult({
+    src: result.src,
+    width: image.width || image.src.width,
+    height: image.height || image.src.height,
+  });
+}
 
 const leftContents = contents.slice(0, Math.ceil(contents.length / 2));
 const rightContents = contents.slice(Math.ceil(contents.length / 2));
 ---
 
-<article class={`c-luckybag-item ${reverse ? 'c-luckybag-item--reverse' : ''}`}>
+<article class="c-luckybag-item" data-reverse={reverse ? 'true' : undefined}>
   <div class='c-luckybag-item__image-wrapper'>
     {
-      isImageMetadata(image) ? (
-        <Image
-          src={image.src}
+      optimizedImage ? (
+        <img
+          src={optimizedImage.src}
           alt={image.alt}
           class='c-luckybag-item__image'
-          width={image.width || image.src.width || 400}
-          height={image.height || image.src.height || 300}
+          width={optimizedImage.width || 400}
+          height={optimizedImage.height || 300}
           loading='lazy'
         />
       ) : (
         <img
-          src={image.src}
+          src={applyBaseUrl(image.src)}
           alt={image.alt}
           class='c-luckybag-item__image'
           width={image.width || 400}
@@ -77,7 +81,7 @@ const rightContents = contents.slice(Math.ceil(contents.length / 2));
           leftContents.map((content) => (
             <div class='c-luckybag-item__content'>
               <img
-                src='/hana.svg'
+                src={applyBaseUrl('/assets/images/svg/hana.svg')}
                 alt=''
                 class='c-luckybag-item__content-icon'
                 aria-hidden='true'
@@ -96,7 +100,7 @@ const rightContents = contents.slice(Math.ceil(contents.length / 2));
           rightContents.map((content) => (
             <div class='c-luckybag-item__content'>
               <img
-                src='/hana.svg'
+                src={applyBaseUrl('/assets/images/svg/hana.svg')}
                 alt=''
                 class='c-luckybag-item__content-icon'
                 aria-hidden='true'
@@ -112,25 +116,7 @@ const rightContents = contents.slice(Math.ceil(contents.length / 2));
       </div>
     </div>
     <div class='c-luckybag-item__button-wrapper'>
-      <a href={buttonHref} class='c-luckybag-item__button'>
-        詳しくはこちら
-        <svg
-          class='c-luckybag-item__button-icon'
-          aria-hidden='true'
-          width='16'
-          height='16'
-          viewBox='0 0 16 16'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path
-            d='M6 4L10 8L6 12'
-            stroke='currentColor'
-            stroke-width='2'
-            stroke-linecap='round'
-            stroke-linejoin='round'></path>
-        </svg>
-      </a>
+      <Button href={buttonHref} variant='secondary' />
     </div>
   </div>
 </article>

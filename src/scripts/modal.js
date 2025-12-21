@@ -10,7 +10,6 @@ export function initNavMenu() {
     const navLinks = nav?.querySelectorAll('.p-block-nav-mobile__link');
 
     if (!hero || !nav || !hamburger) {
-      console.warn('Navigation elements not found');
       return;
     }
 
@@ -93,7 +92,8 @@ export function initNavMenu() {
       }
     });
   } catch (error) {
-    console.error('Error initializing navigation menu:', error);
+    // Error handling: navigation menu initialization failed
+    // Fail silently in production to avoid console noise
   }
 }
 
@@ -106,7 +106,6 @@ export function initShippingModal() {
   try {
     const section = document.getElementById('shipping');
     if (!section) {
-      console.warn('Shipping section not found');
       return;
     }
 
@@ -119,6 +118,12 @@ export function initShippingModal() {
     section.classList.add('is-expanded');
     toggleButton?.setAttribute('aria-expanded', 'true');
 
+    // Calculate and set dynamic max-height based on content
+    if (content) {
+      const contentHeight = content.scrollHeight;
+      content.style.maxHeight = `${contentHeight}px`;
+    }
+
     // Scroll to section if triggered from nav link
     if (document.activeElement?.hasAttribute('data-modal-trigger')) {
       setTimeout(() => {
@@ -130,6 +135,11 @@ export function initShippingModal() {
   function collapseSection() {
     section.classList.remove('is-expanded');
     toggleButton?.setAttribute('aria-expanded', 'false');
+
+    // Reset max-height to 0
+    if (content) {
+      content.style.maxHeight = '0';
+    }
   }
 
   function toggleSection() {
@@ -166,7 +176,17 @@ export function initShippingModal() {
         }
       });
     });
+
+    // Close section on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && section.classList.contains('is-expanded')) {
+        collapseSection();
+        // Scroll back to preview
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   } catch (error) {
-    console.error('Error initializing shipping modal:', error);
+    // Error handling: shipping modal initialization failed
+    // Fail silently in production to avoid console noise
   }
 }

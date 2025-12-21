@@ -1,19 +1,55 @@
 ---
+import { getImage } from 'astro:assets';
 import calendarPc from '../assets/images/calendar-pc.jpg';
 import calendarSp from '../assets/images/calendar-sp.jpg';
+import noshiImage from '../assets/images/noshi-image.png';
+import navArrowSvg from '../assets/icons/nav-arrow.svg?raw';
+import closeArrowSvg from '../assets/icons/close-arrow.svg?raw';
+import {
+  applyBaseUrlToImageResult,
+  applyBaseUrl,
+} from '../utils/image';
 
-const calendarPcSrc = calendarPc.src as string;
-const calendarSpSrc = calendarSp.src as string;
+const calendarPcOptimized = applyBaseUrlToImageResult(
+  await getImage({ src: calendarPc, format: 'webp' })
+);
+const calendarSpOptimized = applyBaseUrlToImageResult(
+  await getImage({ src: calendarSp, format: 'webp' })
+);
+const noshiImageOptimized = applyBaseUrlToImageResult(
+  await getImage({ src: noshiImage, format: 'webp' })
+);
+
+// Generate unique clipPath ID using crypto for better uniqueness
+const uniqueId = `clip0_${crypto.randomUUID().replace(/-/g, '').substring(0, 9)}`;
+// Replace clipPath ID in SVG (replace all occurrences)
+let navArrowSvgWithUniqueId = navArrowSvg.replace(/clip0_0_478/g, uniqueId);
+// Update SVG attributes to include class, aria-hidden, and set width/height to 12x24
+navArrowSvgWithUniqueId = navArrowSvgWithUniqueId.replace(
+  'width="24" height="12"',
+  'class="p-section-shipping__toggle-icon" aria-hidden="true" width="12" height="24"'
+);
+
+// Update close arrow SVG attributes to include class and aria-hidden
+let closeArrowSvgWithAttributes = closeArrowSvg.replace(
+  '<svg width="16" height="16"',
+  '<svg class="p-section-shipping__button-icon p-section-shipping__close-icon" aria-hidden="true" width="16" height="16"'
+);
 ---
 
-<section class='p-section-shipping' id='shipping'>
+<section class='p-section-shipping' id='shipping' aria-labelledby='shipping-title'>
   <div class='l-container'>
     <div class='p-section-shipping__wrapper'>
       <div class='p-section-shipping__inner'>
         <div class='p-section-shipping__preview'>
           <header class='p-section-shipping__header'>
             <div class='p-section-shipping__icon' aria-hidden='true'>
-              <img src='../src/assets/images/noshi-image.png' alt='' />
+              <img
+                src={noshiImageOptimized.src}
+                alt=''
+                width={noshiImage.width}
+                height={noshiImage.height}
+              />
             </div>
             <h2 class='p-section-shipping__title' id='shipping-title'>
               年末年始の発送についての案内
@@ -39,28 +75,13 @@ const calendarSpSrc = calendarSp.src as string;
           </header>
           <div class='p-section-shipping__toggle-wrapper'>
             <button
-              class='p-section-shipping__toggle'
+              class='p-section-shipping__button p-section-shipping__toggle'
               aria-expanded='false'
               aria-controls='shipping-content'
               aria-label='詳細を表示'
             >
               詳しく見る
-              <svg
-                class='p-section-shipping__toggle-icon'
-                aria-hidden='true'
-                width='16'
-                height='16'
-                viewBox='0 0 16 16'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  d='M4 6L8 10L12 6'
-                  stroke='currentColor'
-                  stroke-width='2'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'></path>
-              </svg>
+              <span set:html={navArrowSvgWithUniqueId} />
             </button>
           </div>
         </div>
@@ -79,13 +100,18 @@ const calendarSpSrc = calendarSp.src as string;
               >
             </h3>
             <picture>
-              <source media='(min-width: 768px)' srcset={calendarPcSrc} />
+              <source
+                media='(min-width: 768px)'
+                srcset={calendarPcOptimized.src}
+                width={calendarPc.width}
+                height={calendarPc.height}
+              />
               <img
-                src={calendarSpSrc}
+                src={calendarSpOptimized.src}
                 alt='年末年始休業期間カレンダー'
                 class='p-section-shipping__calendar-image'
-                width='800'
-                height='600'
+                width={calendarSp.width}
+                height={calendarSp.height}
                 loading='lazy'
               />
             </picture>
@@ -120,8 +146,7 @@ const calendarSpSrc = calendarSp.src as string;
                   </h4>
                   <div class='p-section-shipping__subblock-text'>
                     <p>
-                      お支払い確認に時間を要するため、年内出荷をご希望の場合は、
-                      12月23日（火）9時までにご入金をお願いいたします。
+                     ご入金されてから当店へ連絡が入るまで時間がかかります。休業前の出荷をご希望の場合は、12月23日(火)午前9時までにご入金をお願い致します。
                     </p>
                   </div>
                 </div>
@@ -137,16 +162,10 @@ const calendarSpSrc = calendarSp.src as string;
               <div class='p-section-shipping__block-text'>
                 <ul class='p-section-shipping__list'>
                   <li class='p-section-shipping__list-item'>
-                    休業期間中はお電話でのご連絡・お問い合わせは承っておりません。
+                    弊社休業日中はお電話がつながらなくなっております。再配達等、お荷物のご対応に関しましては、当店からお送りしている出荷通知をご確認の上、配送業者に直接ご連絡ください。
                   </li>
                   <li class='p-section-shipping__list-item'>
-                    配送に関するお問い合わせ（再配達依頼、お荷物の確認など）は、
-                    出荷通知メールをご確認の上、配送会社へ直接お問い合わせください。
-                  </li>
-                  <li class='p-section-shipping__list-item'>
-                    メールでのお問い合わせやご注文確認は、営業日より順次対応させていただきます。
-                    ご不便をおかけして申し訳ございません。
-                  </li>
+                    ご注文・メールでのお問い合わせは受付けております。注文の確認メール・お問い合わせメールにつきましては、営業日に順次対応致します。ご不便をお掛け致しますが、何卒ご容赦賜りますようお願い申し上げます。                  </li>
                 </ul>
               </div>
             </div>
@@ -157,14 +176,13 @@ const calendarSpSrc = calendarSp.src as string;
               <div class='p-section-shipping__block-text'>
                 <ul class='p-section-shipping__list'>
                   <li class='p-section-shipping__list-item'>
-                    ご注文内容に不備がある場合や確認事項がある場合は、
-                    お客様からのご返信をお待ちしてから出荷いたします。
+                    ご注文内容に不備、確認事項がある場合、お客様のお返事をお待ちしてからの出荷となります。
                   </li>
                   <li class='p-section-shipping__list-item'>
-                    ご不明な点がございましたら、ご注文前に事前にご確認をお願いいたします。
+                    ご不明な点がある際は、事前にご確認いただいてからのご注文をお願い致します。
                   </li>
                   <li class='p-section-shipping__list-item'>
-                    お支払い方法や配送についての詳細は、ご利用ガイドをご確認ください。
+                    お支払いや配送については、ご利用ガイドをご参照ください。
                   </li>
                 </ul>
               </div>
@@ -173,27 +191,13 @@ const calendarSpSrc = calendarSp.src as string;
         </div>
         <div class='p-section-shipping__close-wrapper'>
           <button
-            class='p-section-shipping__close'
+            class='p-section-shipping__button p-section-shipping__close'
+            aria-expanded='true'
             aria-label='閉じる'
             aria-controls='shipping-content'
           >
             閉じる
-            <svg
-              class='p-section-shipping__close-icon'
-              aria-hidden='true'
-              width='16'
-              height='16'
-              viewBox='0 0 16 16'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M4 10L8 6L12 10'
-                stroke='currentColor'
-                stroke-width='2'
-                stroke-linecap='round'
-                stroke-linejoin='round'></path>
-            </svg>
+            <span set:html={closeArrowSvgWithAttributes} />
           </button>
         </div>
       </div>
@@ -201,33 +205,33 @@ const calendarSpSrc = calendarSp.src as string;
   </div>
   <!-- 装飾要素 -->
   <div
-    class='p-section-shipping__decoration p-section-shipping__decoration--bird'
+    class='p-section-shipping__decoration p-section-shipping__decoration-bird'
     aria-hidden='true'
   >
-    <img src='/deco-bird.svg' alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-bird.svg')} alt='' />
   </div>
   <div
-    class='p-section-shipping__decoration p-section-shipping__decoration--cloud-top-right'
+    class='p-section-shipping__decoration p-section-shipping__decoration-cloud-top-right'
     aria-hidden='true'
   >
-    <img src='/deco-wa-sozai-1.svg' alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-1.svg')} alt='' />
   </div>
   <div
-    class='p-section-shipping__decoration p-section-shipping__decoration--cloud-middle-left'
+    class='p-section-shipping__decoration p-section-shipping__decoration-cloud-middle-left'
     aria-hidden='true'
   >
-    <img src='/deco-wa-sozai-1.svg' alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-1.svg')} alt='' />
   </div>
   <div
-    class='p-section-shipping__decoration p-section-shipping__decoration--cloud-bottom-right'
+    class='p-section-shipping__decoration p-section-shipping__decoration-cloud-bottom-right'
     aria-hidden='true'
   >
-    <img src='/deco-wa-sozai-2.svg' alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-2.svg')} alt='' />
   </div>
   <div
-    class='p-section-shipping__decoration p-section-shipping__decoration--pattern-left'
+    class='p-section-shipping__decoration p-section-shipping__decoration-pattern-left'
     aria-hidden='true'
   >
-    <img src='/deco-matu-2.svg' alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-matu-2.svg')} alt='' />
   </div>
 </section>

@@ -23,22 +23,20 @@
   margin-inline: auto;
 }
 
-@media (--md) {
-  .p-section-special-items__items {
-    gap: var(--spacing-5xl);
-  }
-}
-
+/* ========================================
+   装飾要素
+   ======================================== */
 .p-section-special-items__decoration {
   position: absolute;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 .p-section-special-items__decoration img {
   width: 100%;
   height: auto;
   display: block;
+  pointer-events: none;
 }
 
 /* 上部のジオメトリック装飾 */
@@ -54,6 +52,7 @@
     left: 8%;
   }
 }
+
 /* 右上の装飾 */
 .p-section-special-items__decoration-geometry-top-right {
   top: 9%;
@@ -61,6 +60,7 @@
   width: 504px;
   display: none;
 }
+
 @media (--lg) {
   .p-section-special-items__decoration-geometry-top-right {
     display: block;
@@ -71,7 +71,7 @@
 /* 左中団の装飾 */
 .p-section-special-items__decoration-geometry-middle-left {
   top: 41%;
-  left: -3%;
+  left: -17%;
   width: min(666px, 93vw);
 }
 
@@ -81,7 +81,8 @@
     top: 36%;
   }
 }
-/* 左上の雲 */
+
+/* 左上の雲装飾 */
 .p-section-special-items__decoration-cloud-top-left {
   top: 10%;
   left: -35%;
@@ -95,25 +96,29 @@
     top: 6%;
   }
 }
-/* 右中団の装飾 */
+
+/* 右中団の雲装飾 */
 .p-section-special-items__decoration-cloud-middle-right {
-  top: 50%;
-  right: 0;
+  top: 53%;
+  right: -12%;
   width: min(384px, 53vw);
   transform: scaleX(-1);
 }
+
 @media (--lg) {
   .p-section-special-items__decoration-cloud-middle-right {
     top: 36%;
     right: -4%;
   }
 }
-/* 右下の装飾 */
+
+/* 右下のパターン装飾 */
 .p-section-special-items__decoration-pattern-right {
   bottom: 0;
   right: 0;
   transform: scaleX(-1);
   width: min(411px, 31vw);
+  opacity: 35%;
 }
 
 .p-section-special-items__wa-line {
@@ -121,5 +126,6 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 0;
+  pointer-events: none;
 }

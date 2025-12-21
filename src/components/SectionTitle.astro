@@ -2,12 +2,13 @@
 interface Props {
   titleEn: string;
   titleJp: string;
+  id?: string;
 }
 
-const { titleEn, titleJp } = Astro.props;
+const { titleEn, titleJp, id } = Astro.props;
 ---
 
-<h2 class='c-section-title'>
+<h2 id={id} class='c-section-title'>
   <span class='c-section-title__en' aria-hidden='true'>{titleEn}</span>
   <span class='c-section-title__jp'>{titleJp}</span>
 </h2>

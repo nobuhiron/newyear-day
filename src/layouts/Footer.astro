@@ -1,36 +1,39 @@
+---
+import { applyBaseUrl } from '../utils/image';
+---
 <footer class='l-footer'>
   <div class='l-container'>
     <div class='l-footer__inner'>
       <div class='l-footer__logo'>
-        <img src='/logo.svg' alt='森半' class='l-footer__logo-image' />
+        <img src={applyBaseUrl('/assets/images/svg/logo.svg')} alt='森半' class='l-footer__logo-image' />
       </div>
       <nav class='l-footer__nav' aria-label='フッターナビゲーション'>
         <ul class='l-footer__nav-list'>
           <li class='l-footer__nav-item'>
-            <a href='/' class='l-footer__nav-link'>トップ</a>
+            <a href='#' class='l-footer__nav-link'>トップ</a>
           </li>
           <li class='l-footer__nav-item'>
-            <a href='/shipping' class='l-footer__nav-link'
+            <a href='#shipping' class='l-footer__nav-link'
               >年末年始の出荷スケジュール</a
             >
           </li>
           <li class='l-footer__nav-item'>
-            <a href='/fukubukuro' class='l-footer__nav-link'>福袋ラインナップ</a
+            <a href='#luckybag' class='l-footer__nav-link'>福袋ラインナップ</a
             >
           </li>
           <li class='l-footer__nav-item'>
-            <a href='/special' class='l-footer__nav-link'
+            <a href='#special-items' class='l-footer__nav-link'
               >年末年始だけの特別アイテム</a
             >
           </li>
           <li class='l-footer__nav-item'>
-            <a href='/gathering' class='l-footer__nav-link'
+            <a href='#party' class='l-footer__nav-link'
               >"集まり"のおともに</a
             >
           </li>
           <li class='l-footer__nav-item'>
             <a
-              href='https://shop.example.com'
+              href='https://www.tea-and-coffee.shop/'
               class='l-footer__nav-link'
               target='_blank'
               rel='noopener noreferrer'

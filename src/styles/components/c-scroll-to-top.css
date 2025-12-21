@@ -1,0 +1,41 @@
+@import '../global/variables.css';
+
+.c-scroll-to-top {
+  position: fixed;
+  bottom: 46%;
+  right: 12%;
+  width: 45px;
+  border-radius: var(--radius-sm);
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-on-dark);
+  color: var(--color-text);
+  border: none;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.c-scroll-to-top.is-visible {
+  display: flex;
+  opacity: 1;
+}
+
+.c-scroll-to-top:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: -2px;
+}
+
+.c-scroll-to-top__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+@media (--md) {
+  .c-scroll-to-top {
+    display: flex;
+  }
+}

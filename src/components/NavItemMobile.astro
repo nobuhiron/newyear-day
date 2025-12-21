@@ -1,4 +1,6 @@
 ---
+import navArrowSvg from '../assets/icons/nav-arrow.svg?raw';
+
 interface Props {
   href: string;
   text: string;
@@ -8,7 +10,15 @@ interface Props {
 }
 
 const { href, text, modalTrigger, target, rel } = Astro.props;
-const uniqueId = `clip0_${Math.random().toString(36).substr(2, 9)}`;
+// Generate unique clipPath ID using crypto for better uniqueness
+const uniqueId = `clip0_${crypto.randomUUID().replace(/-/g, '').substring(0, 9)}`;
+// clipPathのIDを動的に生成するため、SVGの内容を置換
+let navArrowSvgWithUniqueId = navArrowSvg.replace(/clip0_0_478/g, uniqueId);
+// SVGの属性を更新
+navArrowSvgWithUniqueId = navArrowSvgWithUniqueId.replace(
+  'width="24" height="12"',
+  'class="p-block-nav-mobile__icon" aria-hidden="true" width="24" height="12"'
+);
 ---
 
 <li class='p-block-nav-mobile__item'>
@@ -20,31 +30,6 @@ const uniqueId = `clip0_${Math.random().toString(36).substr(2, 9)}`;
     {...modalTrigger && { 'data-modal-trigger': modalTrigger }}
   >
     {text}
-    <svg
-      class='p-block-nav-mobile__icon'
-      aria-hidden='true'
-      width='12'
-      height='6'
-      viewBox='0 0 24 12'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <g clip-path={`url(#${uniqueId})`}>
-        <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
-          d='M11.2891 10.1571L5.63211 4.50006L7.04611 3.08606L11.9961 8.03606L16.9461 3.08606L18.3601 4.50006L12.7031 10.1571C12.5156 10.3445 12.2613 10.4498 11.9961 10.4498C11.7309 10.4498 11.4766 10.3445 11.2891 10.1571Z'
-          fill='currentColor'></path>
-      </g>
-      <defs>
-        <clipPath id={uniqueId}>
-          <rect
-            width='12'
-            height='24'
-            fill='white'
-            transform='translate(24 1.04907e-06) rotate(90)'></rect>
-        </clipPath>
-      </defs>
-    </svg>
+    <span set:html={navArrowSvgWithUniqueId} />
   </a>
 </li>
