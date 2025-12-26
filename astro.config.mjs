@@ -1,6 +1,10 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
+  build: {
+    assets: 'assets',
+    assetsPrefix: import.meta.env.CDN_URL || '',
+  },
   image: { service: { entrypoint: 'astro/assets/services/sharp' } },
   vite: {
     build: {

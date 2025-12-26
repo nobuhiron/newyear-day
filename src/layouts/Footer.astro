@@ -1,64 +1,66 @@
 ---
 import { applyBaseUrl } from '../utils/image';
 ---
+
 <footer class='l-footer'>
-  <div class='l-container'>
-    <div class='l-footer__inner'>
-      <div class='l-footer__logo'>
-        <img src={applyBaseUrl('/assets/images/svg/logo.svg')} alt='森半' class='l-footer__logo-image' />
-      </div>
-      <nav class='l-footer__nav' aria-label='フッターナビゲーション'>
-        <ul class='l-footer__nav-list'>
-          <li class='l-footer__nav-item'>
-            <a href='#' class='l-footer__nav-link'>トップ</a>
-          </li>
-          <li class='l-footer__nav-item'>
-            <a href='#shipping' class='l-footer__nav-link'
-              >年末年始の出荷スケジュール</a
-            >
-          </li>
-          <li class='l-footer__nav-item'>
-            <a href='#luckybag' class='l-footer__nav-link'>福袋ラインナップ</a
-            >
-          </li>
-          <li class='l-footer__nav-item'>
-            <a href='#special-items' class='l-footer__nav-link'
-              >年末年始だけの特別アイテム</a
-            >
-          </li>
-          <li class='l-footer__nav-item'>
-            <a href='#party' class='l-footer__nav-link'
-              >"集まり"のおともに</a
-            >
-          </li>
-          <li class='l-footer__nav-item'>
-            <a
-              href='https://www.tea-and-coffee.shop/'
-              class='l-footer__nav-link'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              公式オンラインショップ
-              <svg
-                class='l-footer__external-icon'
-                aria-hidden='true'
-                width='12'
-                height='12'
-                viewBox='0 0 12 12'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  d='M10 2H8V4H10V10H2V2H4V0H2C0.9 0 0 0.9 0 2V10C0 11.1 0.9 12 2 12H10C11.1 12 12 11.1 12 10V8H10V2Z'
-                  fill='currentColor'></path>
-                <path
-                  d='M7 0V2H9.59L3.29 8.29L4.71 9.71L11 3.41V6H13V0H7Z'
-                  fill='currentColor'></path>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </nav>
+  <div class='l-footer__inner'>
+    <div class='l-footer__logo'>
+      <img
+        src={applyBaseUrl('/assets/images/svg/logo.svg')}
+        alt='森半'
+        class='l-footer__logo-image'
+        width='170'
+        height='110'
+      />
     </div>
+    <nav class='l-footer__nav' aria-label='フッターナビゲーション'>
+      <ul class='l-footer__nav-list'>
+        <li class='l-footer__nav-item'>
+          <a href='#' class='l-footer__nav-link'>トップ</a>
+        </li>
+        <!-- <li class='l-footer__nav-item'>
+          <a href='#shipping' class='l-footer__nav-link'
+            >年末年始の出荷スケジュール</a
+          >
+        </li> -->
+        <li class='l-footer__nav-item'>
+          <a href='#luckybag' class='l-footer__nav-link'>福袋ラインナップ</a>
+        </li>
+        <li class='l-footer__nav-item'>
+          <a href='#special-items' class='l-footer__nav-link'
+            >年末年始だけの特別アイテム</a
+          >
+        </li>
+        <li class='l-footer__nav-item'>
+          <a href='#party' class='l-footer__nav-link'>"集まり"のおともに</a>
+        </li>
+        <li class='l-footer__nav-item'>
+          <a
+            href='https://www.tea-and-coffee.shop/'
+            class='l-footer__nav-link'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            公式オンラインショップ
+            <svg
+              class='l-footer__external-icon'
+              aria-hidden='true'
+              width='12'
+              height='12'
+              viewBox='0 0 12 12'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                d='M10 2H8V4H10V10H2V2H4V0H2C0.9 0 0 0.9 0 2V10C0 11.1 0.9 12 2 12H10C11.1 12 12 11.1 12 10V8H10V2Z'
+                fill='currentColor'></path>
+              <path
+                d='M7 0V2H9.59L3.29 8.29L4.71 9.71L11 3.41V6H13V0H7Z'
+                fill='currentColor'></path>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </footer>

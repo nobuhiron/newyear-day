@@ -46,7 +46,7 @@
   --color-footer: var(--color-dark-gray);
   --color-hamburger-bg: var(--color-mid-brown);
 
-  /* Semantic Colors */
+  /* Section-specific Semantic Colors */
   --color-section-special-bg: linear-gradient(100.88deg, var(--color-dark-red-alt) 0.61%, var(--color-dark-red-alt-2) 90.21%);
   --color-section-shipping-bg: linear-gradient(285.91deg, var(--color-brown) 11.22%, var(--color-mid-red) 97.45%);
   --color-section-luckybag-line: linear-gradient(277.31deg, var(--color-beige-medium) 4.31%, var(--color-beige-light) 91.9%);

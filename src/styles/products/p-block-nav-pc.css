@@ -4,7 +4,7 @@
   max-width: var(--layout-max-width-inner);
   margin-inline: auto;
 }
-@media (max-width: 1100px) {
+@container (max-width: 1100px) {
   .p-block-nav-pc {
     display: none;
   }
@@ -12,7 +12,7 @@
 
 .p-block-nav-pc__list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   z-index: 2;
 }
 
@@ -27,7 +27,7 @@
   justify-content: center;
   padding: 16px 20px;
   background-color: var(--color-on-dark);
-  color: var(--color-main);
+  color: var(--color-main) !important;
   transition: background-color 0.2s, color 0.2s;
   min-height: 60px;
   height: 100%;

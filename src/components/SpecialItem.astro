@@ -1,10 +1,9 @@
 ---
-import { getImage } from 'astro:assets';
+import { Image } from 'astro:assets';
 import Button from './Button.astro';
 import {
   isImageMetadata,
   type ImageSource,
-  applyBaseUrlToImageResult,
   applyBaseUrl,
 } from '../utils/image';
 
@@ -18,30 +17,18 @@ interface Props {
 }
 
 const { image, title, price, description, buttonHref } = Astro.props;
-
-// If ImageMetadata, use getImage() to optimize and apply base URL
-// If string path, apply base URL directly
-let optimizedImage: { src: string; width?: number; height?: number } | null = null;
-if (isImageMetadata(image)) {
-  const result = await getImage({ src: image.src });
-  optimizedImage = applyBaseUrlToImageResult({
-    src: result.src,
-    width: image.width || image.src.width,
-    height: image.height || image.src.height,
-  });
-}
 ---
 
 <li class='c-special-item'>
   <div class='c-special-item__image-wrapper'>
     {
-      optimizedImage ? (
-        <img
-          src={optimizedImage.src}
+      isImageMetadata(image) ? (
+        <Image
+          src={image.src}
           alt={image.alt}
           class='c-special-item__image'
-          width={optimizedImage.width || 400}
-          height={optimizedImage.height || 300}
+          width={image.width || image.src.width}
+          height={image.height || image.src.height}
           loading='lazy'
         />
       ) : (
@@ -60,7 +47,7 @@ if (isImageMetadata(image)) {
     <header class='c-special-item__info-header'>
       <h3 class='c-special-item__title'>{title}</h3>
       <div class='c-special-item__price'>
-        <span class='c-special-item__price-yen'>¥</span>
+        <span class='c-special-item__price-yen'>&#165;</span>
         <span class='c-special-item__price-value'>{price}</span>
         <span class='c-special-item__price-unit'> (税込)</span>
       </div>

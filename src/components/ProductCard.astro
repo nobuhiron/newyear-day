@@ -1,10 +1,9 @@
 ---
-import { getImage } from 'astro:assets';
+import { Image } from 'astro:assets';
 import Button from './Button.astro';
 import {
   isImageMetadata,
   type ImageSource,
-  applyBaseUrlToImageResult,
   applyBaseUrl,
 } from '../utils/image';
 
@@ -25,31 +24,19 @@ const {
   buttonHref,
   image,
 } = Astro.props;
-
-// If ImageMetadata, use getImage() to optimize and apply base URL
-// If string path, apply base URL directly
-let optimizedImage: { src: string; width?: number; height?: number } | null = null;
-if (image && isImageMetadata(image)) {
-  const result = await getImage({ src: image.src });
-  optimizedImage = applyBaseUrlToImageResult({
-    src: result.src,
-    width: image.width || image.src.width,
-    height: image.height || image.src.height,
-  });
-}
 ---
 
 <li class='c-product-card'>
   {
     image && (
       <div class='c-product-card__image-wrapper'>
-        {optimizedImage ? (
-          <img
-            src={optimizedImage.src}
+        {isImageMetadata(image) ? (
+          <Image
+            src={image.src}
             alt={image.alt}
             class='c-product-card__image'
-            width={optimizedImage.width || 400}
-            height={optimizedImage.height || 300}
+            width={image.width || image.src.width}
+            height={image.height || image.src.height}
             loading='lazy'
           />
         ) : (
@@ -69,7 +56,7 @@ if (image && isImageMetadata(image)) {
     <header class='c-product-card__header'>
       <h3 class='c-product-card__title'>{title}</h3>
       <div class='c-product-card__price'>
-        <span class='c-product-card__price-yen'>¥</span>
+        <span class='c-product-card__price-yen'>&#165;</span>
         <span class='c-product-card__price-value'>{price}</span>
         <span class='c-product-card__price-unit'>(税込)</span>
       </div>

@@ -1,5 +1,5 @@
 ---
-import { getImage } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import calendarPc from '../assets/images/calendar-pc.jpg';
 import calendarSp from '../assets/images/calendar-sp.jpg';
 import noshiImage from '../assets/images/noshi-image.png';
@@ -15,9 +15,6 @@ const calendarPcOptimized = applyBaseUrlToImageResult(
 );
 const calendarSpOptimized = applyBaseUrlToImageResult(
   await getImage({ src: calendarSp, format: 'webp' })
-);
-const noshiImageOptimized = applyBaseUrlToImageResult(
-  await getImage({ src: noshiImage, format: 'webp' })
 );
 
 // Generate unique clipPath ID using crypto for better uniqueness
@@ -44,8 +41,8 @@ let closeArrowSvgWithAttributes = closeArrowSvg.replace(
         <div class='p-section-shipping__preview'>
           <header class='p-section-shipping__header'>
             <div class='p-section-shipping__icon' aria-hidden='true'>
-              <img
-                src={noshiImageOptimized.src}
+              <Image
+                src={noshiImage}
                 alt=''
                 width={noshiImage.width}
                 height={noshiImage.height}
@@ -208,30 +205,30 @@ let closeArrowSvgWithAttributes = closeArrowSvg.replace(
     class='p-section-shipping__decoration p-section-shipping__decoration-bird'
     aria-hidden='true'
   >
-    <img src={applyBaseUrl('/assets/images/svg/deco-bird.svg')} alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-bird.svg')} alt='' width='75' height='68' />
   </div>
   <div
     class='p-section-shipping__decoration p-section-shipping__decoration-cloud-top-right'
     aria-hidden='true'
   >
-    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-1.svg')} alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-1.svg')} alt='' width='381' height='150' />
   </div>
   <div
     class='p-section-shipping__decoration p-section-shipping__decoration-cloud-middle-left'
     aria-hidden='true'
   >
-    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-1.svg')} alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-1.svg')} alt='' width='381' height='150' />
   </div>
   <div
     class='p-section-shipping__decoration p-section-shipping__decoration-cloud-bottom-right'
     aria-hidden='true'
   >
-    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-2.svg')} alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-wa-sozai-2.svg')} alt='' width='381' height='150' />
   </div>
   <div
     class='p-section-shipping__decoration p-section-shipping__decoration-pattern-left'
     aria-hidden='true'
   >
-    <img src={applyBaseUrl('/assets/images/svg/deco-matu-2.svg')} alt='' />
+    <img src={applyBaseUrl('/assets/images/svg/deco-matu-2.svg')} alt='' width='346' height='319' />
   </div>
 </section>

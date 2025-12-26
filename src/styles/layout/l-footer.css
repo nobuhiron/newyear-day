@@ -26,6 +26,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0;
+    row-gap: 1rem;
   }
 
   .l-footer__nav-item {
@@ -39,12 +40,13 @@
 
 .l-footer__nav-link {
   font-size: fz(13, 14);
-  padding-inline: 20px;
-  color: var(--color-on-dark);
+  padding-inline: 18px;
+  color: var(--color-on-dark) !important;
   font-weight: var(--fw-medium);
   transition: opacity 0.2s;
   display: block;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .l-footer__nav-link:hover {

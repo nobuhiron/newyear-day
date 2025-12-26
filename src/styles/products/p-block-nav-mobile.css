@@ -51,7 +51,7 @@
   align-items: center;
   justify-content: space-between;
   padding-block: 16px 10px;
-  color: var(--color-on-dark);
+  color: var(--color-on-dark) !important;
   transition: opacity 0.2s;
 }
 .p-block-nav-mobile__item:first-child .p-block-nav-mobile__link {
@@ -76,8 +76,8 @@
   color: var(--color-on-dark);
 }
 
-@media (min-width: 1101px) {
+/* @container (min-width: 1101px) {
   .p-block-nav-mobile {
     display: none !important;
   }
-}
+} */
